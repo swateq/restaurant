@@ -1,6 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
+<div>
+    <img class="w-full" src="{{ url('/img/slider1.jpg')}}" alt="Slajder uno">
+</div>
+
 <div class="bg-cover py-12 px-4" style="background-image: url('/img/bg-info.png')">
     <h4 class="text-4xl text-gray-custom pb-2">
         Lorem ipsum dolor sit.

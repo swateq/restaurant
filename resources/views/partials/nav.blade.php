@@ -16,7 +16,4 @@
             </div>
         </div>
     </div>
-    <div class="slajder-wrapper">
-        <img src="{{ url('/img/slider1.jpg')}}" alt="Slajder uno">
-    </div>
 </header>
