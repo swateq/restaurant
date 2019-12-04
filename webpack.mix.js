@@ -18,6 +18,8 @@ mix.js('resources/js/app.js', 'public/js')
    .postCss('resources/css/app.css', 'public/css')
    .tailwind('./tailwind.config.js');
 
+mix.sass('resources/sass/custom.scss', 'public/css');
+
 if (mix.inProduction()) {
   mix
    .version()

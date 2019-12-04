@@ -1,8 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-<div>
-    <img class="w-full" src="{{ url('/img/slider1.jpg')}}" alt="Slajder uno">
+
+<div class="owl-slider">
+    <div id="carousel" class="owl-carousel owl-theme">
+        <div class="item">
+            <img class="owl-lazy" data-src="{{ url('/img/slider1.jpg')}}" alt="">
+        </div>
+        <div class="item">
+            <img class="owl-lazy" data-src="{{ url('/img/slider2.jpg')}}" alt="">
+        </div>
+    </div>
 </div>
 
 <div class="bg-cover py-12 px-4" style="background-image: url('/img/bg-info.png')">
@@ -26,7 +34,6 @@
         </div>
     </div>
 </div>
-
 <div class="bg-cover" style="background-image: url('/img/bg-aktualnosci.png')">
     <h3 class="text-5xl text-center py-10 text-gray-custom">Aktualności</h3>
     <div class="flex px-24 pb-24">
@@ -64,4 +71,28 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    jQuery("#carousel").owlCarousel({
+        autoplay: true,
+        lazyLoad: true,
+        loop: true,
+        dots: true,
+        /*
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        */
+        responsiveClass: true,
+        autoHeight: true,
+        autoplayTimeout: 7000,
+        smartSpeed: 800,
+        responsive: {
+            0: {
+            items: 1
+            }
+        }
+    });
+</script>
 @endsection
