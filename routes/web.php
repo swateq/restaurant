@@ -11,14 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainPageController@index');
 
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'AdminController@dashboard');
-    Route::resource('/news', 'NewsController');
+    Route::get('/news', 'NewsController@index');
+    Route::get('/news/create', 'NewsController@create');
+    Route::post('/news', 'NewsController@store');
+    Route::get('/news/last', 'NewsController@last');
 });
 

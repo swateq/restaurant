@@ -41,9 +41,9 @@
             <img src="{{ url('/img/dzienkobiet.jpg')}}" alt="">
         </div>
         <div class="w-1/2 text-gray-custom pl-4 py-8">
-            <h4 class="text-4xl">Dzień Kobiet</h4>
-            <span class="text-xs">1 marca 2019</span>
-            <div class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia beatae eos, obcaecati vero perferendis rerum suscipit. Deserunt, facilis dolor, iusto itaque quam labore asperiores cumque molestiae a quisquam pariatur qui!</div>
+        <h4 class="text-4xl"> {{ $news->title }}</h4>
+            <span class="text-xs">{{ $news->created_at }}</span>
+            <div class="text-lg">{{ $news->content }}</div>
             <div class="relative w-full py-4">
                 <a class="absolute right-0 text-gray-custom hover:text-gray-custom_disabled hover:no-underline" href="/#">Czytaj więcej</a>
             </div>
