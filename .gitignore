@@ -84,5 +84,6 @@ Homestead.json
 .env
 /public/.htaccess
 /storage
+/public/storage
 storage/*.key
 node_modules

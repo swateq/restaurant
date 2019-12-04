@@ -18,8 +18,8 @@ class CreateSlidersTable extends Migration
             $table->string('name');
             $table->string('seolink')->nullable();
             $table->string('file');
-            $table->integer('position');
-            $table->boolean('active');
+            $table->integer('position')->nullable();
+            $table->boolean('active')->default('1');
             $table->string('lang')->default('pl');
             $table->string('url')->nullable();
             $table->timestamp('dateFrom')->nullable();
