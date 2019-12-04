@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'AdminController@dashboard');
-
+    Route::resource('/news', 'NewsController');
 });
 
