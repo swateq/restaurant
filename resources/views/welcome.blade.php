@@ -1,8 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-<div>
-    <img class="w-full" src="{{ url('/img/slider1.jpg')}}" alt="Slajder uno">
+
+<div class="owl-slider">
+    <div id="carousel" class="owl-carousel owl-theme">
+        <div class="item">
+            <img class="owl-lazy" data-src="{{ url('/img/slider1.jpg')}}" alt="">
+        </div>
+        <div class="item">
+            <img class="owl-lazy" data-src="{{ url('/img/slider2.jpg')}}" alt="">
+        </div>
+    </div>
 </div>
 
 <div class="bg-cover py-12 px-4" style="background-image: url('/img/bg-info.png')">
@@ -26,7 +34,6 @@
         </div>
     </div>
 </div>
-
 <div class="bg-cover" style="background-image: url('/img/bg-aktualnosci.png')">
     <h3 class="text-5xl text-center py-10 text-gray-custom">Aktualności</h3>
     <div class="flex px-24 pb-24">
@@ -34,9 +41,9 @@
             <img src="{{ url('/img/dzienkobiet.jpg')}}" alt="">
         </div>
         <div class="w-1/2 text-gray-custom pl-4 py-8">
-            <h4 class="text-4xl">Dzień Kobiet</h4>
-            <span class="text-xs">1 marca 2019</span>
-            <div class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia beatae eos, obcaecati vero perferendis rerum suscipit. Deserunt, facilis dolor, iusto itaque quam labore asperiores cumque molestiae a quisquam pariatur qui!</div>
+        <h4 class="text-4xl"> {{ $news->title }}</h4>
+            <span class="text-xs">{{ $news->created_at }}</span>
+            <div class="text-lg">{{ $news->content }}</div>
             <div class="relative w-full py-4">
                 <a class="absolute right-0 text-gray-custom hover:text-gray-custom_disabled hover:no-underline" href="/#">Czytaj więcej</a>
             </div>
@@ -64,4 +71,28 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    jQuery("#carousel").owlCarousel({
+        autoplay: true,
+        lazyLoad: true,
+        loop: true,
+        dots: true,
+        /*
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        */
+        responsiveClass: true,
+        autoHeight: true,
+        autoplayTimeout: 7000,
+        smartSpeed: 800,
+        responsive: {
+            0: {
+            items: 1
+            }
+        }
+    });
+</script>
 @endsection
