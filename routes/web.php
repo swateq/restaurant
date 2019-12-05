@@ -17,9 +17,6 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'AdminController@dashboard');
-    Route::get('/news', 'NewsController@index');
-    Route::get('/news/create', 'NewsController@create');
-    Route::post('/news', 'NewsController@store');
-    Route::get('/news/last', 'NewsController@last');
+    Route::resource('/admin/news', 'NewsController');
 });
 

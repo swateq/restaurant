@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class NewsController extends Controller
 {
@@ -20,7 +21,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return $this->news->where('active','1')->get();
+        $news = $this->news->all();
+        return view('admin.news.index',compact('news'));
     }
 
     /**
@@ -43,57 +45,64 @@ class NewsController extends Controller
     {
         $attributes = request()->validate([
             'title' => 'required',
-            'seolink' => 'required',
             'content' => 'required'
         ]);
 
         $this->news->create($attributes);
 
-        return redirect('/news');
+        return redirect('/admin/news')->with('toast_success', 'Post dodany prawidłowo!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param \App\News $news
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(News $news)
     {
-        //
+        return view('admin.news.show', compact('news'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\News $news
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(News $news)
     {
-        //
+        return view('admin.news.edit', compact('news'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, News $news)
     {
-        //
+        $attributes = request()->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        $news->update($request->all());
+
+        return redirect('/admin/news')->with('toast_success', 'Post edytowany prawidłowo!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(News $news)
     {
-        //
+        $news->delete();
+        return Redirect('/admin/news')->with('toast_success', 'Post usunięty prawidłowo!');
     }
 }

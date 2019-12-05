@@ -16,9 +16,10 @@ class CreateNewsTable extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('seolink');
+            $table->string('seolink')->nullable();
             $table->text('content');
             $table->boolean('active')->default('1');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

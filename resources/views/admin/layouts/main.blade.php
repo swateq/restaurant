@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Admin Starter Template : Tailwind Toolbox</title>
+    <title>UnnAdmin</title>
     <meta name="author" content="name">
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
@@ -18,10 +18,16 @@
 </head>
 
 <body class="font-sans leading-normal tracking-normal mt-12">
+    @include('sweetalert::alert')
     @include('admin.partials.nav')
     @include('admin.partials.sidepanel')
 
-    @yield('content')
+    <div class="w-2/3 mx-auto mt-4">
+        @yield('content')
+    </div>
+
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    @yield('script')
 
     <script>
         /*Toggle dropdown list*/
