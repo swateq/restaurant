@@ -21,7 +21,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = $this->news->all();
+        $news = $this->news->paginate(5);
         return view('admin.news.index',compact('news'));
     }
 
