@@ -17,6 +17,7 @@ class CreateReservationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->dateTime('start');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
