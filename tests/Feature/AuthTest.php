@@ -19,16 +19,6 @@ class AuthTest extends TestCase
     }
 
     /** @test */
-    public function a_user_cannot_view_a_login_form_when_authenticated()
-    {
-        $user = Factory('App\User')->make();
-
-        $response = $this->actingAs($user)->get('/login');
-
-        $response->assertRedirect('/home');
-    }
-
-    /** @test */
     public function a_user_can_login_with_correct_credentials()
     {
         $user = factory('App\User')->create([
@@ -62,5 +52,5 @@ class AuthTest extends TestCase
         $this->assertFalse(session()->hasOldInput('password'));
         $this->assertGuest();
     }
-    
+
 }

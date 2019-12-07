@@ -13,7 +13,7 @@ class NewsTest extends TestCase
     /** @test */
     public function guests_cannot_create_a_news()
     {
-        $this->get('/news/create')->assertRedirect('/login');
+        $this->get('/admin/news/create')->assertRedirect('/login');
 
         $attributes = [
             'title' => $this->faker->sentence,
@@ -23,24 +23,23 @@ class NewsTest extends TestCase
             'created_at' => $this->faker->dateTime($max = 'now', $timezone = null)
         ];
 
-        $this->post('/news', $attributes)->assertRedirect('/login');
+        $this->post('/admin/news', $attributes)->assertRedirect('/login');
     }
 
         /** @test */
         public function a_user_can_create_a_news()
         {
             $this->signIn();
-            $this->get('/news/create')->assertStatus(200);
-    
+            $this->get('/admin/news/create')->assertStatus(200);
+
             $attributes = [
                 'title' => $this->faker->sentence,
-                'seolink' => $this->faker->sentence,
                 'content' => $this->faker->text($maxNbChars = 200),
                 'active' => '1'
             ];
-    
-            $this->post('/news', $attributes)->assertRedirect('/news');
+
+            $this->post('/admin/news', $attributes)->assertRedirect('/admin/news');
             $this->assertDatabaseHas('news', $attributes);
-            $this->get('/news')->assertSee($attributes['title']);
+            $this->get('/admin/news')->assertSee($attributes['title']);
         }
 }
