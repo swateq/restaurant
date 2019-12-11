@@ -13,7 +13,6 @@ class News extends Model
 
     public static function last()
     {
-        $news = new News();
-        return $news->where('active','1')->latest()->first();
+        return News::where('active','1')->latest()->first();
     }
 }

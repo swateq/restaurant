@@ -51,7 +51,13 @@
     </div>
 </div>
 
+</form>
 <div class="flex bg-second px-10 py-4">
+        <form action="/newsletter" method="post">
+            <input type="email" name="email" id="email">
+            <button type="submit">Zapisz</button>
+            @csrf
+        </form>
     <div class="w-1/3">
         <div class="flex">
             <img src="{{ url('/img/ico-adres.png')}}" alt="">

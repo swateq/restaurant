@@ -16,7 +16,7 @@ class CreateNewslettersTable extends Migration
         Schema::create('newsletters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('email');
-            $table->boolean('active');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

@@ -8,9 +8,14 @@ use Tests\TestCase;
 
 class NewsletterTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     public function a_guest_can_add_email_to_newsletter ()
     {
-        $this->post('newsletter',['email' => 'testmail@gmail.com'])->assertStatus(200);
+        $attributes = ['email' => 'testmail@gmail.com'];
+
+        $this->post('newsletter', $attributes);
+        $this->assertDatabaseHas('newsletters', $attributes);
     }
 }

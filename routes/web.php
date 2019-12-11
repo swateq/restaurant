@@ -23,6 +23,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('admin/reservations/update','ReservationController@update');
     Route::post('admin/reservations/delete','ReservationController@destroy');
     Route::get('admin/reservations/create','ReservationController@create');
-
 });
 
+
+Route::post('/newsletter','NewsletterController@store');
+Route::get('/admin/newsletter','NewsletterController@index');
+Route::get('/admin/newsletter/search','NewsletterController@search');

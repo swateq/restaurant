@@ -1,7 +1,7 @@
 <?php
 
-use App\Newsletter;
 use Illuminate\Database\Seeder;
+use App\Newsletter;
 
 class NewsletterTableSeeder extends Seeder
 {
