@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e87f1563aad3ff2dc35ad697b43ac0d1",
+    "content-hash": "11ea2e47871061bd32167e5bf9406d92",
     "packages": [
         {
             "name": "components/jquery",
@@ -1773,6 +1773,60 @@
                 "toast"
             ],
             "time": "2019-11-27T13:05:54+00:00"
+        },
+        {
+            "name": "rennokki/laravel-eloquent-query-cache",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rennokki/laravel-eloquent-query-cache.git",
+                "reference": "5ec03cb1dc3f001de8f6fb8449ee704ddfdbabd9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rennokki/laravel-eloquent-query-cache/zipball/5ec03cb1dc3f001de8f6fb8449ee704ddfdbabd9",
+                "reference": "5ec03cb1dc3f001de8f6fb8449ee704ddfdbabd9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^6.0",
+                "illuminate/support": "^6.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/database": "~3.5.0|~3.6.0|~4.0.0",
+                "orchestra/testbench": "~3.5.0|~3.6.0|~4.0.0",
+                "phpunit/phpunit": "^6.2|^7.0|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rennokki\\QueryCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Renoki",
+                    "email": "rennokki@gmail.com",
+                    "homepage": "https://twitter.com/rennokki",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adding cache for Laravel Eloquent queries' results is now a breeze.",
+            "homepage": "https://github.com/rennokki/laravel-eloquent-query-cache",
+            "keywords": [
+                "caching",
+                "eloquent",
+                "laravel",
+                "query",
+                "remember",
+                "sql"
+            ],
+            "time": "2019-12-02T07:48:06+00:00"
         },
         {
             "name": "robloach/component-installer",
